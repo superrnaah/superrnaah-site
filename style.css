@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,700&display=swap');
+
 
 * {
     box-sizing: border-box;
@@ -24,18 +26,29 @@ body {
 hr {
     margin: 12px 0;
     color:brown;
-    width: 25%;
+    width: clamp(50%,10.2vw,25%);
 }
 
 .nav h2 {
-    font-family: 'Covered By Your Grace', cursive;
-    font-size: 2.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-image: linear-gradient(45deg, #fa9b0c, #d4441f);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+    font-size: clamp(2.5rem, 12.2vw,9.5rem);
     letter-spacing: 5px;
 }
 
 .nav h3 {
     margin-top: 8px;
     padding-bottom: 40px;
+    text-align: center;
+    letter-spacing: 12px;
 }
 
 .wrapper {
@@ -50,6 +63,9 @@ hr {
 
 .content {
     background-color: #131b24;
+    -webkit-box-shadow: -13px 17px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -13px 17px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: -13px 17px 20px 0px rgba(0,0,0,0.75);
 
 }
 
@@ -59,6 +75,13 @@ hr {
     font-weight: 800;
     letter-spacing: .4em;
     line-height: 2em;
+}
+
+.date-grid {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 55px;
+    letter-spacing: normal;
 }
 
 .date {
@@ -74,6 +97,8 @@ hr {
 }
 
 .content img {
+    width: clamp(250px,60vw,450px);
+    height: clamp(250px,60vw,450px);
     margin-top: 35px;
     border: 5px double rgba(255, 0, 0, 0.708);
     border-radius: 22px;
@@ -110,12 +135,14 @@ hr {
 }
 
 .tracks {
+    padding-left: 25px;
     text-align: center;
     width: max-content;
 
 }
 
 .singles {
+    padding-right: 25px;
     text-align: center;
     width: max-content;
 }
@@ -127,11 +154,12 @@ hr {
 .link {
     margin: 0 auto;
     width: fit-content;
+    height: fit-content;
 }
 
 .content a h2 {
     text-align: center;
-    padding-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 span {
@@ -143,37 +171,92 @@ span {
     list-style: none;
 }
 
-.ad {
-    text-align: left;    
+
+.srch-grid {
+    display: flex;
+    margin: 0 auto;
+    width: 900px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    padding-left: 10px;
 }
+
+.date-grid a {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    color: transparent;
+}
+
+.srch-grid ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #d4441f;
+}
+
+.srch-grid ul li:hover {
+    color: #008E97;
+}
+
 
 .srch {
     height: 40px;
-    width: 50px;
+    width: 150px;
+    margin-bottom: 15px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
 
-
 .srch:focus {
-    width: clamp(230px,65ch,530px);
+    width: clamp(230px,65ch,330px);
     }
-
-.srch-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    width: 50px;
-    
-}
 
 .fa-brands {
     font-size: 45px;
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
     cursor: pointer;
+}
+
+.spot-wrapper {
+    position: fixed;
+    position: -webkit-sticky;
+}
+
+.spot-wrapper iframe {
+    width: auto;
+    margin-left: 25px;
 }
 
 footer {
     height: 250px;
+}
+
+
+@media screen and (max-width: 450px){
+
+.grid {
+    grid-template-columns: 1fr;
+    row-gap: 55px;
+    justify-items: center;
+    align-items: center;
+}
+
+.tracks {
+    padding-left: inherit;
+}
+
+.singles {
+    padding-right: inherit;
+}
+
+
 }
